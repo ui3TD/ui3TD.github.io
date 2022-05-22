@@ -11,6 +11,13 @@ iframe {
 	border: none;
 }
 
+canvas {
+	display:block; 
+	margin:1em auto; 
+	background:#fff; 
+	border:1px solid #ccc 
+}
+
 #contents {
 	font-family: sans-serif;
 	background-color: #FFFFFF;
