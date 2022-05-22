@@ -1,0 +1,40 @@
+body {
+  background-color: #DDDDDD;
+}
+h1 {
+	letter-spacing: 0.1em;
+	color: #888888;
+	line-height: 50px;
+	margin-bottom: 10px;
+}
+iframe {
+	border: none;
+}
+
+#contents {
+	font-family: sans-serif;
+	background-color: #FFFFFF;
+	text-align: center;
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+	padding: 40px;
+	line-height: 40px;
+}
+
+a:link {
+	color: #666666;
+	text-decoration: none;
+}
+a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+a:hover {
+	color: #AAAAAA;
+	text-decoration: none;
+}
+a:active {
+	color: #AAAAAA;
+	text-decoration: none;
+}
