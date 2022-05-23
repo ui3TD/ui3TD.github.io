@@ -32,12 +32,19 @@ mono {
 ul {
 	line-height: 20px;
 }
-
+#body {
+	display: flex;
+}
+#padding {
+	width: 50px;
+	flex: 1 1 auto;
+}
 #contents {
 	font-family: sans-serif;
 	background-color: #FFFFFF;
 	text-align: center;
-	width: 70%;
+	width: 900px;
+	flex: 0 1 auto;
 	margin: auto;
 	margin-top: 20px;
 	padding: 40px;
