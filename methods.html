@@ -1,0 +1,63 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ui3td.github.io/" />
+<meta name="theme-color" content="#96b3b5">
+
+<title>Methods</title>
+<meta property="og:title" content="Idol Stats" />
+
+<meta name="description" content="Visualizations of idol twitter and instagram data">
+<meta property="og:description" content="Visualizations of idol twitter and instagram data" />
+
+<link rel="icon" type="image/x-icon" href="icons/index.png">
+<meta property="og:image" content="icons/index.png" />
+
+<link rel="stylesheet" href="css/idolstats.css">
+</head>
+
+<body>
+<div id="contents">
+<div id="title">
+<h1>Methods: Twitter</h1>
+</div>
+<div id="text">
+The <a href="https://www.rdocumentation.org/packages/rtweet/"><mono>rtweet</mono></a> library is used to access the Twitter API. Tweets less than 7 days old are excluded from the analysis to allow time for their numbers to stabilize. It has been observed that replies, quote retweets, and text tweets garner significantly less engagement than simple media tweets. The analysis includes only media tweets. Tweets with 0 likes/retweets are given 1 like/retweet in order to avoid undetermined values when taking the logarithm. The number of tweets affected by this intervention is insignificant.
+<p>
+The average value of likes and retweets is derived using different methods based on the number of data points. For greater than 50 data points, <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS regression</a> is performed. For between 2 and 50 data points, linear regression is performed. For 1 data point, the value itself is taken. The regressions are performed on the base-10 logarithms of the engagement over time. The ratio of retweets to likes is calculated as the difference of the LOESS regressions of the log base-10 of the retweets and likes respectively.
+</div>
+
+<div id="title">
+<h1>Methods: Instagram</h1>
+</div>
+<div id="text">
+The <a href="https://instaloader.github.io/"><mono>instaloader</mono></a> command line tool is used to access the Instagram API. Instagram posts less than 7 days old are excluded from the analysis to allow time for their numbers to stabilize. Posts that disable likes are excluded from the analysis. Posts that disable comments are included in the analysis as 0 comments. This is because it is impossible to distinguish posts with comments disabled from those with comments enabled. A method to exclude posts with statistically low comment to like ratio is being investigated to circumvent this.
+<p>
+The average value of likes and comments is derived using different methods based on the number of data points. For greater than 50 data points, <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS regression</a> is performed. For between 2 and 50 data points, linear regression is performed. For 1 data point, the value itself is taken. The regressions are performed on the base-10 logarithms of the engagement over time. The ratio of comments to likes is calculated as the difference of the LOESS regressions of the log base-10 of the comments and likes respectively.
+</div>
+
+<div id="title">
+<h1>Methods: Combined Analysis</h1>
+</div>
+<div id="text">
+Twitter and Instagram stats are combined using <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Principal Component Analysis (PCA)</a>. The PCA is performed to reduce the two dimensions IG Likes and Twt Likes into one dimension that provides a kind of weighted average (defined by the eigenvector). The average value, called <mono>igtwt_avg</mono>, is derived from PC1 and scaled to a range of 0 to 1.
+</div>
+<div id="title">
+<h1>Glossary</h1>
+</div>
+<div id="glossary">
+<mono>twtlikes</mono>: The average number of Twitter likes per media tweet<br>
+<mono>twtrts</mono>: The average number of Twitter retweets per media tweet<br>
+<mono>twtratio</mono>: The ratio of Twitter retweets to likes per media tweet<br>
+<mono>iglikes</mono>: The average number of Instagram likes per post<br>
+<mono>igcomments</mono>: The average number of Instagram comments per post<br>
+<mono>igratio</mono>: The ratio of Instagram comments to likes per post<br>
+<mono>igtwtratio</mono>: The ratio of Instagram likes to Twitter likes per post<br>
+<mono>igtwt_avg</mono>: The weighted average of Instagram likes and Twitter likes per post based on PCA<br>
+</div>
+</div>
+</body>
+</html> 

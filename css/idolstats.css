@@ -18,6 +18,11 @@ canvas {
 	border:1px solid #ccc 
 }
 
+mono {
+	font-family: monospace;
+	background-color: #EEEEEE;
+}
+
 #contents {
 	font-family: sans-serif;
 	background-color: #FFFFFF;
@@ -27,6 +32,21 @@ canvas {
 	margin-top: 20px;
 	padding: 40px;
 	line-height: 40px;
+}
+#text {
+	font-family: sans-serif;
+	margin: auto;
+	text-align: left;
+	max-width: 700px;
+	line-height: 30px;
+	text-indent: 20px;
+}
+#glossary {
+	font-family: sans-serif;
+	margin: auto;
+	text-align: left;
+	max-width: 700px;
+	line-height: 30px;
 }
 #roadmap {
 	margin: auto;
