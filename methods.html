@@ -23,13 +23,9 @@
 <div id="body">
 <div id="padding"></div>
 <div id="contents">
-<div id="title">
 <h1>How is the Data Prepared?</h1>
-</div>
 <div id="text">
-<div id="title">
 <h2>Twitter</h2>
-</div>
 <p>
 Data excluded from Twitter:
 <ul>
@@ -39,53 +35,39 @@ Data excluded from Twitter:
 <li>Text tweets without media</li>
 </ul><p>
 The <a href="https://www.rdocumentation.org/packages/rtweet/"><mono>rtweet</mono></a> library is used to access the Twitter API. Tweets less than 7 days old are excluded from the analysis to allow time for their numbers to stabilize. It has been observed that replies, quote retweets, and text tweets garner significantly less engagement than simple media tweets. Therefore, the analysis includes only media tweets. Tweets with 0 likes or retweets are given 1 like or retweet in order to avoid undetermined values when taking the logarithm. The number of tweets affected by this intervention is insignificant.
-<div id="title">
 <h2>Instagram</h2>
-</div>
 <p>
 Data excluded from Instagram:
 <ul>
 <li>Posts within the last 7 days</li>
 </ul><p>
 The <a href="https://instaloader.github.io/"><mono>instaloader</mono></a> command line tool is used to access the Instagram API. Instagram posts less than 7 days old are excluded from the analysis to allow time for their numbers to stabilize. Posts that disable likes are excluded from the analysis. Posts that disable comments are included in the analysis as 0 comments. This is because it is impossible to distinguish posts with comments disabled from those with comments enabled. A method to exclude posts with statistically low comment to like ratio is being investigated to circumvent this.
-<div id="title">
 <h2>Averaging (Curve Smoothing)</h2>
-</div>
 <p>
 The average value of likes, retweets and comments is derived using different methods based on the number of data points in order to avoid overfitting. For greater than 50 data points, <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS regression</a> is performed. For between 2 and 50 data points, linear regression is performed. For 1 data point, the value itself is taken. The regressions are performed on the base-10 logarithms of the engagement over time. No extrapolation is performed, so if the data date is more recent than the latest post, then the value of the regression at the time of the latest post is taken. The ratio of comments to likes is calculated as the difference of the regressions of the log base-10 of the comments and likes respectively.
-</div>
-
-<div id="title">
 <h2>Combined Analysis</h2>
-</div>
-<div id="text">
+<p>
 Twitter and Instagram stats are combined using <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Principal Component Analysis (PCA)</a>. The PCA is performed to reduce the two dimensions, log of IG likes and log of Twt likes, into one dimension that provides a kind of weighted average (defined by the eigenvector). The average value, called <mono>igtwt_avg</mono>, is derived from PC1 and scaled to a range of 0 to 1. For individuals with just a Twitter or Instagram account but not both, the missing data is estimated before inclusion in the PCA. Missing data is estimated using the linear regression of the log of IG likes vs. the log of Twt likes.
 </div>
 <div id="title">
 <h1>What is the Meaning of a Like?</h1>
 </div>
 <div id="text">
-<div id="title">
 <h2>Twitter</h2>
-</div>
 <p>
 A Twitter like is an expression of support. Tweets have relatively low discoverability compared to other platforms. Most likes probably come from the idol's fanbase. In my graphs, I have equated the number of likes to the size of the fanbase.
 <p>
 There are often three theories as to the meaning of a retweet: (1) retweet as a superlike, (2) retweet as a casual reply, (3) retweet as a tweet to one's own followers. In practice, we see large numbers of retweets for tweets that are not necessarily "likeable", such as tweets with the hashtag #拡散希望 (meaning "please spread"). We also see that there is little personal connection between the retweeter and the idol, which differentiates it from a reply. Theories (1) and (2) do not seem to adequately describe retweet behaviour. The hypothesis is that (3) is the primary motivator of retweets and that retweets are greatest where fans are well connected. Thus I have equated retweets to a community size.
 <p>
 The ratio of retweets to likes will show if an idol has a large fanbase but little community activity. In my graphs, I have equated the retweets to likes ratio to community strength. Generally, K-pop and anime related accounts get very high retweets per like, while rock bands and actresses have very low retweets per like. This metric gives a sense of the fandom culture.
-<div id="title">
 <h2>Instagram</h2>
-</div>
 <p>
 An Instagram like is an expression of a positive response. Instagram has relatively high discoverability, where the post will be exposed to many users who are not necessarily fans. A positive response, even from a non-fan, will garner a like. The number of Instagram likes shows the reach of an idol, and shows their ability to be seen by the general public.
 <p>
 Instagram comments are a message directly to the idol. The hypothesis is that fans who feel a personal connection to the idol will be more likely to post a comment. In my graphs, I relate the number of comments to the number of parasocial fans.
 <p>
 The ratio of comments to likes shows the likelihood a given fandom will have more parasocial relationships with the idol. This ratio gives a sense of the fandom culture, where some idols may be more adept at cultivating such a fanbase. Idols with high reach tend to have lower parasocial-ness in fans.
-<div id="title">
 <h2>A Comparison</h2>
-</div>
 <p>
 To understand the difference between an Instagram like and a Twitter like, it's important to understand the purposes of the two platforms. Twitter is used to advertise content, alert fans to new activities, and interact with the community. Instagram is used to spread visually interesting content, which is not necessarily news or activities-related. In short, Twitter users are more willing to spend money on fan activities, and Instagram users are more interested in looking at photos. The ratio of Instagram to Twitter likes shows the level of reach the idol has outside of their fan communities. In my graphs, I call it outside reach. It describes a potential for growth where the idol could convert the Instagram likes into new Twitter followers.
 <p>

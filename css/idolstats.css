@@ -1,18 +1,21 @@
 body {
-  background-color: #DDDDDD;
+  background-color: #DDD;
 }
 h1 {
 	letter-spacing: 0.1em;
-	color: #888888;
+	color: #888;
 	line-height: 50px;
-	margin-bottom: 10px;
+	margin: 40px 0px 20px 0px;
 }
 h2 {
 	letter-spacing: 0.1em;
 	text-align: center;
-	color: #AAAAAA;
+	color: #BBB;
 	line-height: 50px;
-	margin-bottom: 10px;
+	margin: 30px 0px 10px 0px;
+}
+p {
+	margin: 0px 0px 15px 0px;
 }
 iframe {
 	border: none;
@@ -21,13 +24,14 @@ iframe {
 canvas {
 	display:block; 
 	margin:1em auto; 
-	background:#fff; 
+	background: #fff; 
 	border:1px solid #ccc;
 }
 
 mono {
 	font-family: monospace;
-	background-color: #EEEEEE;
+	background: #EEE;
+	padding: 2px 4px 2px 4px;
 }
 ul {
 	line-height: 20px;
@@ -36,18 +40,17 @@ ul {
 	display: flex;
 }
 #padding {
-	width: 50px;
-	flex: 1 1 auto;
+	width: 200px;
+	flex: 1 11 auto;
 }
 #contents {
 	font-family: sans-serif;
-	background-color: #FFFFFF;
+	background: #FFF;
 	text-align: center;
-	width: 900px;
-	flex: 0 1 auto;
-	margin: auto;
-	margin-top: 20px;
-	padding: 40px;
+	width: 1200px;
+	flex: 0 8 auto;
+	margin: 20px 0px 50px 0px;
+	padding: 20px 40px 60px 40px;
 	line-height: 40px;
 }
 #text {
@@ -66,15 +69,13 @@ ul {
 	line-height: 30px;
 }
 #roadmap {
-	margin: auto;
-	margin-top: 40px;
+	margin: 40px auto auto auto;
 	font-size: 12px;
-	color: #666666;	
+	color: #666;	
 	border-style: double;
-	border-color: #CCCCCC;
+	border-color: #CCC;
 	text-align: left;
-	padding-left: 8%;
-	padding-right: 8%;
+	padding: 0 8% 0 8%;
 	max-width: 300px;
 }
 #roadmap_title {
@@ -83,18 +84,18 @@ ul {
 }
 
 a:link {
-	color: #666666;
+	color: #444;
 	text-decoration: none;
 }
 a:visited {
-	color: #333333;
+	color: #444;
 	text-decoration: none;
 }
 a:hover {
-	color: #AAAAAA;
+	color: #AAA;
 	text-decoration: none;
 }
 a:active {
-	color: #AAAAAA;
+	color: #AAA;
 	text-decoration: none;
 }
