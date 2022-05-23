@@ -43,7 +43,7 @@ The average value of likes and comments is derived using different methods based
 <h1>Methods: Combined Analysis</h1>
 </div>
 <div id="text">
-Twitter and Instagram stats are combined using <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Principal Component Analysis (PCA)</a>. The PCA is performed to reduce the two dimensions, IG Likes and Twt Likes, into one dimension that provides a kind of weighted average (defined by the eigenvector). The average value, called <mono>igtwt_avg</mono>, is derived from PC1 and scaled to a range of 0 to 1.
+Twitter and Instagram stats are combined using <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Principal Component Analysis (PCA)</a>. The PCA is performed to reduce the two dimensions, log of IG likes and log of Twt likes, into one dimension that provides a kind of weighted average (defined by the eigenvector). The average value, called <mono>igtwt_avg</mono>, is derived from PC1 and scaled to a range of 0 to 1. For individuals with just a Twitter or Instagram account but not both, the missing data is estimated before inclusion in the PCA. Missing data is estimated using the linear regression of the log of IG likes vs. the log of Twt likes.
 </div>
 <div id="title">
 <h1>Glossary</h1>
