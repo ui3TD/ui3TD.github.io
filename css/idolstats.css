@@ -22,6 +22,9 @@ mono {
 	font-family: monospace;
 	background-color: #EEEEEE;
 }
+ul {
+	line-height: 20px;
+}
 
 #contents {
 	font-family: sans-serif;
