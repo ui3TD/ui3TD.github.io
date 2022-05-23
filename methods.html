@@ -22,10 +22,10 @@
 <body>
 <div id="contents">
 <div id="title">
-<h1>Methods: Twitter</h1>
+<h1>Methods: Extracting Data</h1>
 </div>
 <div id="text">
-Data excluded:
+Data excluded from twitter:
 <ul>
 <li>Posts within the last 7 days</li>
 <li>Replies</li>
@@ -34,20 +34,13 @@ Data excluded:
 </ul>
 The <a href="https://www.rdocumentation.org/packages/rtweet/"><mono>rtweet</mono></a> library is used to access the Twitter API. Tweets less than 7 days old are excluded from the analysis to allow time for their numbers to stabilize. It has been observed that replies, quote retweets, and text tweets garner significantly less engagement than simple media tweets. Therefore, the analysis includes only media tweets. Tweets with 0 likes or retweets are given 1 like or retweet in order to avoid undetermined values when taking the logarithm. The number of tweets affected by this intervention is insignificant.
 <p>
-The average value of likes and retweets is derived using different methods based on the number of data points. For greater than 50 data points, <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS regression</a> is performed. For between 2 and 50 data points, linear regression is performed. For 1 data point, the value itself is taken. The regressions are performed on the base-10 logarithms of the engagement over time. The ratio of retweets to likes is calculated as the difference of the LOESS regressions of the log base-10 of the retweets and likes respectively.
-</div>
-
-<div id="title">
-<h1>Methods: Instagram</h1>
-</div>
-<div id="text">
-Data excluded:
+Data excluded from Instagram:
 <ul>
 <li>Posts within the last 7 days</li>
 </ul>
 The <a href="https://instaloader.github.io/"><mono>instaloader</mono></a> command line tool is used to access the Instagram API. Instagram posts less than 7 days old are excluded from the analysis to allow time for their numbers to stabilize. Posts that disable likes are excluded from the analysis. Posts that disable comments are included in the analysis as 0 comments. This is because it is impossible to distinguish posts with comments disabled from those with comments enabled. A method to exclude posts with statistically low comment to like ratio is being investigated to circumvent this.
 <p>
-The average value of likes and comments is derived using different methods based on the number of data points. For greater than 50 data points, <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS regression</a> is performed. For between 2 and 50 data points, linear regression is performed. For 1 data point, the value itself is taken. The regressions are performed on the base-10 logarithms of the engagement over time. The ratio of comments to likes is calculated as the difference of the LOESS regressions of the log base-10 of the comments and likes respectively.
+The average value of likes, retweets and comments is derived using different methods based on the number of data points in order to avoid overfitting. For greater than 50 data points, <a href="https://en.wikipedia.org/wiki/Local_regression">LOESS regression</a> is performed. For between 2 and 50 data points, linear regression is performed. For 1 data point, the value itself is taken. The regressions are performed on the base-10 logarithms of the engagement over time. No extrapolation is performed, so if the data date is more recent than the latest tweet, then the value of the LOESS curve at the time of the latest tweet is taken. The ratio of comments to likes is calculated as the difference of the LOESS regressions of the log base-10 of the comments and likes respectively.
 </div>
 
 <div id="title">
