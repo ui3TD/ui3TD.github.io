@@ -20,6 +20,9 @@ p {
 iframe {
 	border: none;
 }
+li {
+	text-indent: 0em; 
+}
 
 canvas {
 	display:block; 
@@ -34,7 +37,7 @@ mono {
 	padding: 2px 4px 2px 4px;
 }
 ul {
-	line-height: 20px;
+	line-height: 25px;
 }
 #body {
 	display: flex;
