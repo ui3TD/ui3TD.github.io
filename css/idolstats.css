@@ -10,7 +10,7 @@ h1 {
 h2 {
 	letter-spacing: 0.1em;
 	text-align: center;
-	color: #888888;
+	color: #AAAAAA;
 	line-height: 50px;
 	margin-bottom: 10px;
 }
@@ -22,7 +22,7 @@ canvas {
 	display:block; 
 	margin:1em auto; 
 	background:#fff; 
-	border:1px solid #ccc 
+	border:1px solid #ccc;
 }
 
 mono {
