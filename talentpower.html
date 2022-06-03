@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ui3td.github.io/" />
+<meta name="theme-color" content="#96b3b5">
+
+<title>Nikkei Talent Power Rankings</title>
+<meta property="og:title" content="Idol Stats" />
+
+<meta name="description" content="Visualizations of idol twitter and instagram data">
+<meta property="og:description" content="Visualizations of idol twitter and instagram data" />
+
+<link rel="icon" type="image/x-icon" href="icons/index.png">
+<meta property="og:image" content="icons/index.png" />
+
+<link rel="stylesheet" href="css/idolstats.css">
+</head>
+
+<body>
+<div id="body">
+<div id="padding"></div>
+<div id="contents">
+<div id="title">
+<h1>Nikkei Talent Power Rankings (2022)</h1>
+</div>
+
+<a href="img/talentpower2022.png">Click Here for Full Image</a>
+<canvas></canvas>
+<script src="js/talentpower.js"></script>
+<div id="text-noindent">
+<h4>What are the Talent Power Rankings?</h4>
+<p>The Talent Power Rankings is a yearly survey of celebrity "Recognition" and "Interest". Recognition is usually plotted on the horizontal x axis and Interest is plotted on the vertical y axis. The survey is run by Architect, a marketing company, and is published in Nikkei Entertainment monthly magazine. It has been published every may since 2008.</p>
+<h4>What do these numbers mean?</h4>
+<p>Recognition is the number of people reached by the celebrity throughout their career. This number should only increases over the years in the short-term. It is not representative of the current trendiness of a celebrity. Be careful to note that Recognition for groups behaves differently than for individuals! Unlike individuals, groups can change their members. It is very easy for groups to decrease in Recognition if their members have changed.</p>
+<p>Interest is the proportion of people who are mildly positive towards to celebrity, among those who know the celebrity. It is wider in scope that what you would normally consider to be "fans" of a celebrity. This number should vary year after year depending on the celebrity's activities. If you multiply Recognition and Interest, you get the total percentage of people who are mildly interested in a celebrity!</p>
+<p>Is low Interest bad? Not necessarily! If it comes with increasing Recognition, it could represent a new audience who have the potential to be converted to fans. If Recognition is stagnant however, could represent a loss of fanbase. The graphs do not show the rate of change of Recognition so you will have to be judge based on your knowledge of the industry.</p>
+<h4>Who is surveyed?</h4>
+<p>The survey polls people in Tokyo, Kanagawa, Saitama and Chiba. A total of 4400 people are polled, split between 4 groups so that 1100 people are polled each quarter. Each quarter, the following number of people are polled per age group, split between male (M) and female (F):
+<ul>
+<li>Ages 10-14 (50 M / 50 F)</li>
+<li>Ages 15-19 (50 M / 50 F)</li>
+<li>Ages 20-24 (50 M / 50 F)</li>
+<li>Ages 25-29 (50 M / 50 F)</li>
+<li>Ages 30-34 (50 M / 50 F)</li>
+<li>Ages 35-39 (50 M / 50 F)</li>
+<li>Ages 40-44 (50 M / 50 F)</li>
+<li>Ages 45-49 (50 M / 50 F)</li>
+<li>Ages 50-54 (50 M / 50 F)</li>
+<li>Ages 55-59 (50 M / 50 F)</li>
+<li>Ages 60-69 (50 M / 50 F)</li>
+</ul>
+</p>
+<h4>How is the survey biased?</h4>
+<p>The survey will probably under-represent celebrities who are popular outside of the Tokyo region. The survey under-represents young people between 10-35 years old, over-represents older people between 35-60 years old, and under-represents seniors between 60-70 years old. Japan has a large population (~20%) of aged 70+ who are excluded from the survey. The survey only includes a curated selection of celebrities. Some popular celebrities, especially new up-and-coming celebrities, may be excluded. </p>
+<h4>How is "Recognition" determined?</h4>
+<p>Participants are asked to choose between 3 options for each celebrity:</p>
+<ol>
+<li>I know their name and face</li>
+<li>I only know their name</li>
+<li>I don't know them</li>
+</ol>
+<p>Recognition is the percentage who choose option 1.</p>
+<h4>How is "Interest" determined?</h4>
+<p>Participants who answer with option 1 to the Recognition question are then are asked to choose between 4 options for each celebrity:</p>
+<ol>
+<li>I really want to see, listen to or hear about them</li>
+<li>I want to see, listen to or hear about them</li>
+<li>I don't want to see, listen to or hear about them</li>
+<li>I really don't want to see, listen to or hear about them</li>
+</ol>
+<p>Interest is the percentage of those among those who recognize the celebrity who choose option 1 or 2. This is the percent who feel at least mildly positively towards the celebrity.</p>
+<h4>What is "Talent Power Score"?</h4>
+<p>What if you want to know not the number of people mildly interested but rather the number of fans? This is what the talent power score is. You often see this number in rankings. This is a rough estimation of the percent of participants who are fans of the celebrity. It assumes one third of the people who answered option 2 to the Interest question are fans. It is calculated by multiplying the Recognition with the sum of the percent of people who chose option 1 for Interest, and one third of those who chose option 2 for Interest.</p>
+<h4>What is the accuracy of the survey?</h4>
+<p>The accuracy of Recognition is observable to be approximately +/- 5%. Recognition is typically expected to increase year after year. If it is observed that a celebrity has decreased in recognition over a year, we can assume that decrease is mostly due to sampling error. A celerity named Superfly decreased approximately 5% between 2021 and 2022. Statistically, accuracy is expected to increase in the value is near the extremes (near 0% and near 100%)</p>
+<p>The accuracy of Interest is difficult to predict. Celebrities with lower Recognition will have less accurate Interest values because of lower sample size.</p>
+<p>The accuracy of the Talent Power Score is likewise difficult to predict. It can be roughly estimated to be between +/- 5-10%, assuming the accuracy of Interest is approximately the same as Recognition.</p>
+</div>
+</div>
+<div id="padding"></div>
+</div>
+</body>
+</html> 
